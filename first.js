@@ -97,3 +97,48 @@ const lessDuration=songs.find((song)=>{
     return song.rating<4;
 })
 console.log(lessDuration)
+
+//Math object
+//MAth.floor , Math.ceil, Math.MIN, Math.MAX
+
+//DATE object - returns only the index and not the string. so we will get date(day num) and the year as integer itself
+//but the month and day(str) is received only as index. so for that we use arrays
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const date=new Date();
+
+console.log(`Today's date is ${date.getDate()} ${month[date.getMonth()]}, ${date.getFullYear()} and the day is ${days[date.getDay()]}`)
+
+//DOM MANIPULATION
+//first, select the element/group of elements 
+// second, do something on the elements
+//In general returns a node/object
+
+//hierarchy - window -> document , in case the js is not able to find the property/method it by default searched in the window object. if not found throws error
+//window object - the tab that you are currently working on
+//document - the document specific consisting the head and body
+//console.dir - to get info regarding the doc
+
+//getElementById
+//assigning to a variable is a good choice rather than starting off from scartch each time
+var manipulateId=document.getElementById("dom")
+manipulateId.style.backgroundColor='red'
+
+//getElementByTagName 
+//returns a node-list , but cannot use array methods
+//in order to use the node-list, change it to an array
+//so in order to manipulate, we need to manipulate the elements and not the whole node-list
+var manipulateTag=document.getElementsByTagName("h3")
+manipulateTag[0].style.color="blue"
+//to convert to array- use spread operator to use array methods
+var arrayManipulateTag=[...manipulateTag]
+for (const array of arrayManipulateTag) {
+    console.log(array)
+}
+
+//getElementByClassName - exact same as tag name
+var manipulateClass=document.getElementsByClassName('dom1')
+manipulateClass[1].style.backgroundColor='lightgrey'
+
+//querySelector - single element
+//querySelectorAll - multiple elements
