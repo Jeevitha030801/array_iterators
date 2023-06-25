@@ -142,3 +142,98 @@ manipulateClass[1].style.backgroundColor='lightgrey'
 
 //querySelector - single element
 //querySelectorAll - multiple elements
+//these 2 can handle all the even difficult css , can use the array methods also
+//in this we have to mention the id,class (#,.)
+var manipulateQuerySelector = document.querySelector("#heading")
+manipulateQuerySelector.style.color="pink"
+//in case of get element by id,class or tag - array methods cannot be taken into consideration
+var manipulateQuerySelectorAll=document.querySelectorAll(".subheading")
+manipulateQuerySelectorAll.forEach(query => {
+    query.style.color="red"
+});
+
+//parent, firstchild, lastchild
+var manipulateFirstChild=document.querySelector("li:first-child")
+console.log(manipulateFirstChild)
+var manipulateLastChild=document.querySelector("li:last-child")
+console.log(manipulateLastChild)
+var manipulateColor=document.querySelectorAll(".color")
+manipulateColor.forEach(mcolor => {
+    mcolor.style.color="green"
+});
+
+//childNode - includes all the whitespace characters too
+//children - only the children element
+//parentElement- up
+var allChild = document.querySelector("#list")
+console.log(allChild.childNodes)
+console.log(allChild.children)
+console.log(allChild.parentElement)
+console.log(allChild.parentElement.parentElement.parentElement)
+
+//next and previous sibling
+console.log(manipulateFirstChild.nextElementSibling)
+console.log(manipulateLastChild.previousElementSibling)
+
+//nodevalue and textcontent- used to get the value stored in that specific var, tag or class
+var headContent = document.getElementsByTagName("h3")
+//needs to access from the first child because it returns a node object
+console.log(headContent[0].firstChild.nodeValue)
+console.log(headContent[0].textContent)
+
+//getAttribute , setAttribute
+var getClassAttribute = document.getElementsByClassName("dom1")
+console.log(getClassAttribute[0].getAttribute("data")) 
+getClassAttribute[0].setAttribute("data","hello this is changed")
+console.log(getClassAttribute[0].getAttribute("data"))
+
+//className and classList 
+//classList is used to add, remove and check if the attribute contains the classes
+var findname=document.getElementById("firstclass")
+console.log(findname.className)
+var assignsecond=document.getElementById("secondclass")
+assignsecond.className="firstClass"
+const firstClassList=document.getElementsByClassName("firstClass")
+console.log(firstClassList)
+var assignThird=document.getElementById("thirdclass")
+assignThird.classList.add("text","hi","hello") //adding of classnames so it will be used with respect to css
+assignThird.classList.remove("hi")
+ var result =assignThird.classList.contains("text")
+ if(result) console.log("hey it is present")
+ else {console.log("no not present")}
+console.log(assignThird)
+//createElement - to create new element using DOM
+//textnode - to add a text to the element that has been created
+//appendChild - to add the created element to the existing HTML
+//document.body - provides access to the body of the html doc
+                    //add textnode ->element->body of html doc(to view in doc)->to the div where it should be added
+var exisitingDiv=document.getElementById("create")
+var creatingDiv=document.createElement("div")
+var creatingButton=document.createElement("button")
+var textDiv= document.createTextNode("hi")
+var textButton=document.createTextNode("okok")
+creatingDiv.appendChild(textDiv)
+document.body.appendChild(creatingDiv)
+creatingButton.appendChild(textButton)
+document.body.appendChild(creatingButton)
+exisitingDiv.appendChild(creatingDiv)
+exisitingDiv.appendChild(creatingButton)
+ 
+creatingDiv.classList.add("firstClass")
+console.log(create)
+//INSERTBEFORE , REPLACECHILD 
+//insertbefore(element,location)
+//replacechild(new,old)
+//hi okok button to button okok
+create.insertBefore(creatingDiv,creatingButton)
+console.log(create)
+
+//innerText- similar to text node 
+// prepend - adds in the beginning , opp to append
+var topMost=document.createElement("h1");
+topMost.innerText="This is the example of innerText and prepend"
+document.body.prepend(topMost)
+
+//Remove and RemoveChild - common syntax
+//innerHTML and textContent - both are same as it displays the message stored in the attribute
+//the difference is textcontent shows only the message and innerHTML shows along with the structure
